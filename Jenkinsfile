@@ -1,5 +1,5 @@
 node {
-    stage ("Checkout DataApi"){
+    stage ("Checkout DataApi") {
         git branch: 'main', url: 'https://github.com/MSDproject1014/mcc-data.git'
     }
     
@@ -30,12 +30,12 @@ node {
 	   parameters: [choice(choices: 'Yes\nNo', 
 	   description: '', name: 'Pass')]
 	
-	  if(response=="Yes") {
-	    stage('Deploy to Kubenetes cluster - DataApi') {
-	      sh "kubectl create deployment mccdata --image=mccdata:v1.0"
-	      sh "kubectl expose deployment mccdata --type=LoadBalancer --port=8080"
+        if(response=="Yes") {
+            stage('Deploy to Kubenetes cluster - DataApi') {
+                sh "kubectl create deployment mccdata --image=mccdata:v1.0"
+                sh "kubectl expose deployment mccdata --type=LoadBalancer --port=8080"
+            }
 	    }
-	  }
     }
 
     stage("Production Deployment View"){
