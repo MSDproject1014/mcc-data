@@ -44,6 +44,6 @@ node {
         sh "kubectl get services"
     }
 
-    test
+    test2
   
 }
