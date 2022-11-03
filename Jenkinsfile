@@ -43,5 +43,7 @@ node {
         sh "kubectl get pods"
         sh "kubectl get services"
     }
+
+    test
   
 }
